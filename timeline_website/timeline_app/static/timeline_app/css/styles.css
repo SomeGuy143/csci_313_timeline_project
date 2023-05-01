@@ -11,8 +11,17 @@
   /* The actual timeline (the vertical ruler) */
   .timeline {
     position: relative;
-    max-width: 1200px;
+    width: 75%;
     margin: 0 auto;
+    float: left;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 25%;
+    margin: 0 auto;
+    float: right;
+    background-color: darkred; 
   }
   
   /* The actual timeline (the vertical ruler) */
