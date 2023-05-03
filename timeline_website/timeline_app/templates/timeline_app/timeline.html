@@ -8,18 +8,32 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'timeline_app/css/styles.css' %}">
   </head>
+  <header>
+    <h1> Timeline Name </h1>
+    <form method="POST">
+      <input placeholder="Title" name ="title" type="text">
+      <input placeholder="Date (YYYY-MM-DD)" name ="date" type="datetime">
+      <input placeholder="Description" name ="description" type="text">
+      <button type="submit">Add Event</button>
+  </form>
+  </header>
   <body>
     <div class="timeline">
+
       <div class="container left">
         <div class="content">
-          <h2>Test</h2>
+          <h2>Event 1</h2>
+          <p>Event Description</p>
         </div>
       </div>
+
       <div class="container right">
         <div class="content">
-          <h2>Test 2</h2>
+          <h2>Event 2</h2>
+          <p>Event Description</p>
         </div>
       </div>
+
     </div>
   </body>
 </html>
