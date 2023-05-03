@@ -1,6 +1,20 @@
 * {
     box-sizing: border-box;
   }
+
+    header  {
+    margin: 10px;
+    background-color:rgb(148, 186, 201);
+    height: auto + 10px;
+    align-content: center;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    border: double rgb(211, 255, 233) 6px;
+  }
+  form {
+    padding-bottom: 20px;
+    word-spacing: 10px;
+  }
   
   /* Set a background color */
   body {

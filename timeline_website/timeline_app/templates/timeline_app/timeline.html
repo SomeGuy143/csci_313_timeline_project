@@ -8,18 +8,41 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'timeline_app/css/styles.css' %}">
   </head>
+  <header>
+    <h1> Timeline Name </h1>
+    <form method="POST">
+      <input placeholder="Title" name ="title" type="text">
+      <input placeholder="Date (YYYY-MM-DD)" name ="date" type="datetime">
+      <input placeholder="Description" name ="description" type="text">
+      <button type="submit">Add Event</button>
+  </form>
+  </header>
   <body>
     <div class="timeline">
+
+      {% for event in events %}
+      {% cycle 'left' 'right' as left_right silent %}
+
+      {% if left_right == 'left' %}
       <div class="container left">
         <div class="content">
-          <h2>Test</h2>
+          <h2>{{ event.title }}</h2>
+          <h3> {{ event.date }} </h3>
+          <p>{{ event.description }}</p>
         </div>
       </div>
+      {% endif %}
+
+      {% if left_right == 'right' %}
       <div class="container right">
         <div class="content">
-          <h2>Test 2</h2>
+          <h2>{{ event.title }}</h2>
+          <h3> {{ event.date }} </h3>
+          <p>{{ event.description }}</p>
         </div>
       </div>
+      {% endif %}
+      {% endfor %%}
     </div>
   </body>
 </html>
