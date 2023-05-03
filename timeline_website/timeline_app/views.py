@@ -4,7 +4,7 @@ from timeline_app.models import Timeline, Event
 
 # Create your views here.
 def index(request):
-    return render(request, 'timeline_app/index.html')
+    return render(request, 'timeline_app/master.html')
 
 def timeline(request, pk):
     course = Timeline.objects.get(pk=pk)
