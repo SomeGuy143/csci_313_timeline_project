@@ -7,7 +7,11 @@ def index(request):
     return render(request, 'timeline_app/index.html')
 
 def timeline(request, pk):
-    course = Timeline.objects.get(pk=pk)
+    timeline = Timeline.objects.get(pk=pk)
+    event = Event.objects.filter(timeline_id=pk)
+    
+    dict = {'timeline': timeline,
+            'events': event}
 
     if request.method=="POST":
         title = request.add['title']
@@ -17,5 +21,4 @@ def timeline(request, pk):
                   description=description, timeline_id=pk)
         o.save()
     
-    dict = {'timeline' : timeline}
     return render(request, 'timeline_app/timeline.html', context=dict)
