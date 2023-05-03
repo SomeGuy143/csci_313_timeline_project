@@ -20,21 +20,30 @@
   </header>
   <body>
     <div class="timeline">
+    
+      {% for event in events %}
+      {% cycle 'left' 'right' as left_right silent %}
 
+      {% if left_right == 'left' %}
       <div class="container left">
         <div class="content">
-          <h2>Event 1</h2>
-          <p>Event Description</p>
+          <h2>{{ event.title }}</h2>
+          <h3> {{ event.date }} </h3>
+          <p>{{ event.description }}</p>
         </div>
       </div>
+      {% endif %}
 
+      {% if left_right == 'right' %}
       <div class="container right">
         <div class="content">
-          <h2>Event 2</h2>
-          <p>Event Description</p>
+          <h2>{{ event.title }}</h2>
+          <h3> {{ event.date }} </h3>
+          <p>{{ event.description }}</p>
         </div>
       </div>
-
+      {% endif %}
+      {% endfor %%}
     </div>
   </body>
 </html>
