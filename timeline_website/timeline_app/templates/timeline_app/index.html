@@ -9,17 +9,13 @@
     <link rel="stylesheet" href="{% static 'timeline_app/css/styles.css' %}">
   </head>
   <body>
-    <div class="timeline">
-      <div class="container left">
-        <div class="content">
-          <h2>Test</h2>
-        </div>
+    {% for timeline in timelines %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{timeline.timeline_name}}</h5>
+        <a href="{% url 'timeline' pk=timeline.timeline_id %}" class="btn btn-primary">Edit</a>
       </div>
-      <div class="container right">
-        <div class="content">
-          <h2>Test 2</h2>
-        </div>
-      </div>
-    </div>
+    <div/>
+    {% endfor %}
   </body>
 </html>
