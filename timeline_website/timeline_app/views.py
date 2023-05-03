@@ -8,11 +8,13 @@ def index(request):
 
 def timeline(request, pk):
     course = Timeline.objects.get(pk=pk)
-
+    
+    #Events.objects.filter(id=id).delete()
+    
     if request.method=="POST":
-        title = request.add['title']
-        date = request.add['date']
-        description = request.add['description']
+        title = request.POST['title']
+        date = request.POST['date']
+        description = request.POST['description']
         o = Event(date=date, title=title, 
                   description=description, timeline_id=pk)
         o.save()
