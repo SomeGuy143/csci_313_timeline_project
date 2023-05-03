@@ -4,7 +4,9 @@ from timeline_app.models import Timeline, Event
 
 # Create your views here.
 def index(request):
-    return render(request, 'timeline_app/master.html')
+    timeline_objects = Timeline.objects.all().order_by('timeline_id')
+    dict = {'timelines' : timeline_objects}
+    return render(request, 'timeline_app/index.html', context=dict)
 
 def timeline(request, pk):
     timeline = Timeline.objects.get(pk=pk)

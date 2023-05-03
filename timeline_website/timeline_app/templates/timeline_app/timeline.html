@@ -11,7 +11,6 @@
   <header>
     <h1> Timeline Name </h1>
     <form method="POST">
-      {% csrf token %}
       <input placeholder="Title" name ="title" type="text">
       <input placeholder="Date (YYYY-MM-DD)" name ="date" type="datetime">
       <input placeholder="Description" name ="description" type="text">
@@ -20,7 +19,7 @@
   </header>
   <body>
     <div class="timeline">
-    
+
       {% for event in events %}
       {% cycle 'left' 'right' as left_right silent %}
 
@@ -46,4 +45,3 @@
       {% endfor %%}
     </div>
   </body>
-</html>
