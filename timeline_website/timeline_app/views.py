@@ -16,11 +16,10 @@ def timeline(request, pk):
             'events': event}
 
     if request.method=="POST":
-        title = request.add['title']
-        date = request.add['date']
-        description = request.add['description']
+        title = request.POST['title']
+        date = request.POST['date']
+        description = request.POST['description']
         o = Event(date=date, title=title, 
                   description=description, timeline_id=pk)
         o.save()
-    
     return render(request, 'timeline_app/timeline.html', context=dict)
