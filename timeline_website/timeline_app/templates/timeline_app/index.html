@@ -1,28 +1,3 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static 'timeline_app/css/styles.css' %}">
-  </head>
-  <body>
-    <div class="aside">
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, vero aspernatur officia dignissimos molestiae vel cum ut amet reiciendis, tempore iusto, illum mollitia enim. Molestiae quis non suscipit in hic.</h1>
-    </div>
-    <div class="timeline">
-      <div class="container left">
-        <div class="content">
-          <h2>Test</h2>
-        </div>
-      </div>
-      <div class="container right">
-        <div class="content">
-          <h2>Test 2</h2>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+{% extends "master.html" %}
+
+{% block body %}
