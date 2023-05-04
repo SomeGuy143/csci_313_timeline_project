@@ -10,7 +10,7 @@ def index(request):
 
 def timeline(request, pk):
     timeline = Timeline.objects.get(pk=pk)
-    event = Event.objects.filter(timeline_id=pk)
+    event = Event.objects.filter(timeline_id=pk).order_by('date')
     
     dict = {'timeline': timeline,
             'events': event}
@@ -20,6 +20,6 @@ def timeline(request, pk):
         date = request.POST['date']
         description = request.POST['description']
         o = Event(date=date, title=title, 
-                  description=description, timeline_id=pk)
+                  description=description, timeline_id=timeline)
         o.save()
     return render(request, 'timeline_app/timeline.html', context=dict)
