@@ -1,6 +1,9 @@
+{% extends 'timeline_app/navbar.html' %}
 {% load static %}
+{% block contentblock %}
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +11,6 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'timeline_app/css/styles.css' %}">
   </head>
-  <header>
-    <h1> Timeline Projects </h1>
-    <form method="POST">
-      {% csrf_token %}
-      <input placeholder="Timeline Name" name ="timeline_name" type="text">
-      <button type="submit">Add Timeline</button>
-    </form>
-  </header>
-  <!--Adding a comment to test something, delete this if you see it-->
   <body>
     {% for timeline in timelines %}
     <div class="card">
@@ -27,4 +21,6 @@
     </div>
     {% endfor %}
   </body>
+  
 </html>
+{% endblock %}

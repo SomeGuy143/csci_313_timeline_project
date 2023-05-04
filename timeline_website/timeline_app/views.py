@@ -6,12 +6,6 @@ from timeline_app.models import Timeline, Event
 def index(request):
     timeline_objects = Timeline.objects.all().order_by('timeline_id')
     dict = {'timelines' : timeline_objects}
-
-    if request.method=="POST":
-            timeline_name = request.POST['timeline_name']
-            o = Timeline(timeline_name=timeline_name)
-            o.save()
-
     return render(request, 'timeline_app/index.html', context=dict)
 
 def timeline(request, pk):
