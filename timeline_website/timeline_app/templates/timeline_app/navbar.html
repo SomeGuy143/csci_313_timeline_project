@@ -6,13 +6,16 @@
     <table style="border-radius: 2px; border-color: red; width: 100%;">
         <tr>
             <td>
-                <img src="{% static 'timeline_app/images/logo.png'%}" alt="Timelines Logo" style="height: 48px; width: 48px;">
+                <!--Clicking logo takes user back to homepage-->
+                <button style="background: none; border: 0;" onclick="location.href = '/'">
+                    <img src="{% static 'timeline_app/images/logo.png'%}" alt="Timelines Logo" style="height: 48px; width: 48px;">
+                </button>
             </td>
             <td style="padding-top: 10px;">
                 <h1 style= "text-align: left;">Timelines</h1>
             </td>
             <td style="padding-right: 10%;">
-                <input type="text" style="float: right; width: 70%;">
+                <button type="submit" style="float: right">Search</button><input #searchfield type="text" style="float: right; width: 70%;">
             </td>
         </tr>
     </table>   
