@@ -2,7 +2,7 @@
 {% block contentblock %}
 <header id="subHeader">
     <div>
-        <h1 class="subHeaderElement"> Timeline Name </h1>
+        <h1 class="subHeaderElement"> {{timeline.timeline_name}} </h1>
         <form method="POST" class="headerElement">
             {% csrf_token %}
             <input placeholder="Title" name="title" type="text" class="subHeaderEntry">
