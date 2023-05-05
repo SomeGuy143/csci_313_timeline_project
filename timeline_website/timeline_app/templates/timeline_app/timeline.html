@@ -1,48 +1,42 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static 'timeline_app/css/styles.css' %}">
-  </head>
-  <header>
-    <h1> Timeline Name </h1>
-    <form method="POST">
-      {% csrf_token %}
-      <input placeholder="Title" name ="title" type="text">
-      <input placeholder="Date (YYYY-MM-DD)" name ="date" type="datetime">
-      <input placeholder="Description" name ="description" type="text">
-      <button type="submit">Add Event</button>
-  </form>
-  </header>
-  <body>
-    <div class="timeline">
-
-      {% for event in events %}
-      {% cycle 'left' 'right' as left_right silent %}
-
-      {% if left_right == 'left' %}
-      <div class="container left">
-        <div class="content">
-          <h2>{{ event.title }}</h2>
-          <h3> {{ event.date }} </h3>
-          <p>{{ event.description }}</p>
-        </div>
-      </div>
-      {% endif %}
-
-      {% if left_right == 'right' %}
-      <div class="container right">
-        <div class="content">
-          <h2>{{ event.title }}</h2>
-          <h3> {{ event.date }} </h3>
-          <p>{{ event.description }}</p>
-        </div>
-      </div>
-      {% endif %}
-      {% endfor %%}
+{% extends 'timeline_app/navbar.html' %}
+{% block contentblock %}
+<header id="subHeader">
+    <div>
+        <h1 class="subHeaderElement"> Timeline Name </h1>
+        <form method="POST" class="headerElement">
+            {% csrf_token %}
+            <input placeholder="Title" name ="title" type="text" class="subHeaderEntry">
+            <input placeholder="Date (YYYY-MM-DD)" name ="date" type="datetime" class="subHeaderEntry">
+            <input placeholder="Description" name ="description" type="text" class="subHeaderEntry">
+            <button type="submit" class="btn btn-primary">Add Event</button>
+        </form>
     </div>
-  </body>
+</header>
+
+<div class="timeline">
+    {% for event in events %}
+    {% cycle 'left' 'right' as left_right silent %}
+
+    {% if left_right == 'left' %}
+    <div class="box left">
+        <div class="content">
+            <h2>{{ event.title }}</h2>
+            <h3>{{ event.date }}</h3>
+            <p>{{ event.description }}</p>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if left_right == 'right' %}
+    <div class="box right">
+        <div class="content">
+            <h2>{{ event.title }}</h2>
+            <h3>{{ event.date }}</h3>
+            <p>{{ event.description }}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %} 

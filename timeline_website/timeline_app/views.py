@@ -11,7 +11,7 @@ def index(request):
             timeline_name = request.POST['timeline_name']
             o = Timeline(timeline_name=timeline_name)
             o.save()
-
+            
     return render(request, 'timeline_app/index.html', context=dict)
 
 def timeline(request, pk):
