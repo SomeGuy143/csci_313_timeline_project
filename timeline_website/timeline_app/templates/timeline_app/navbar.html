@@ -7,7 +7,10 @@
         <tr>
             <td>
                 <!--Clicking logo takes user back to homepage-->
-                <button style="background: none; border: 0;" onclick="location.href = '/'">
+                <button 
+                onmouseover="style='background: solid'"
+                onmouseout="style= 'background: none; border: 0;'"
+                style="background-color: rgb(151, 151, 151); background: none; border: 0;" onclick="location.href = '/'">
                     <img src="{% static 'timeline_app/images/logo.png'%}" alt="Timelines Logo" style="height: 48px; width: 48px;">
                 </button>
             </td>
@@ -20,7 +23,7 @@
         </tr>
     </table>   
 </div>
-<!--temp buffer for content block--><br><br>
+<div style="height: 64px; width: 100%;"></div><!--temp buffer for content block-->
 {% block contentblock %}
 <!--No content goes here!-->
 {% endblock %}
