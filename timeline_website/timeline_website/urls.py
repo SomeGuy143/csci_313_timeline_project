@@ -24,5 +24,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('timeline/<int:pk>/', timeline, name='timeline'),
     path('delete-timeline/<int:id>', views.delete_timeline, name='delete-timeline'),
-    path('delete-event/<int:id>', views.delete_event, name='delete-event'),
+    # path('timeline/<int:timeline>/delete-event/<int:id>', views.delete_event, name='delete-event'),
+    path('timeline/<int:timeline>/delete-event/<int:id>/', views.delete_event, name='delete-event'),
 ]

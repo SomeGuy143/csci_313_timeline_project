@@ -36,7 +36,7 @@ def delete_timeline(request, id):
   member.delete()
   return HttpResponseRedirect(reverse('index'))
 
-def delete_event(request, id, timelineId):
+def delete_event(request, id, timeline):
   member = Event.objects.filter(event_id=id)
   member.delete()
-  return HttpResponseRedirect(reverse('timeline'))
+  return HttpResponseRedirect(f'/timeline/{timeline}')
