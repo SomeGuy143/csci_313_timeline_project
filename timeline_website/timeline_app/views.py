@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from timeline_app.models import Timeline, Event
 
 # Create your views here.
@@ -29,3 +30,13 @@ def timeline(request, pk):
                   description=description, timeline_id=timeline)
         o.save()
     return render(request, 'timeline_app/timeline.html', context=dict)
+
+def delete_timeline(request, id):
+  member = Timeline.objects.filter(timeline_id=id)
+  member.delete()
+  return HttpResponseRedirect(reverse('index'))
+
+def delete_event(request, id, timelineId):
+  member = Event.objects.filter(event_id=id)
+  member.delete()
+  return HttpResponseRedirect(reverse('timeline'))

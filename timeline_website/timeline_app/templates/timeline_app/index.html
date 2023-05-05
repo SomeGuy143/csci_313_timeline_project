@@ -28,6 +28,7 @@
       <div class="card-body">
         <h5 class="card-title">{{timeline.timeline_name}}</h5>
         <a href="{% url 'timeline' pk=timeline.timeline_id %}" class="btn btn-primary">Edit</a>
+        <a href="delete-timeline/{{ timeline.timeline_id }}" class="btn btn-primary">Delete</a>
       </div>
     </div>
     {% endfor %}
