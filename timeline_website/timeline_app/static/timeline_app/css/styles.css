@@ -5,20 +5,18 @@
 .card {
   border: 2px black;
   border-style: double;
-  width: 15%;
+  width: auto;
   text-align: center;
   background-color:rgb(211, 255, 233);
   padding: 10px;
-
+  margin: 20px;
 }
 header  {
-  margin: 10px;
   background-color:rgb(148, 186, 201);
-  height: auto + 10px;
+  height: auto;
   align-content: center;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
-  border: double rgb(211, 255, 233) 6px;
 }
 form {
   padding-bottom: 20px;
