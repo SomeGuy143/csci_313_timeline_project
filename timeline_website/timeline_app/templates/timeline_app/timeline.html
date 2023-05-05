@@ -6,7 +6,7 @@
         <form method="POST" class="headerElement">
             {% csrf_token %}
             <input placeholder="Title" name ="title" type="text" class="subHeaderEntry">
-            <input placeholder="Date (YYYY-MM-DD)" name ="date" type="datetime" class="subHeaderEntry">
+            <input name ="date" type="date" class="subHeaderEntry">
             <input placeholder="Description" name ="description" type="text" class="subHeaderEntry">
             <button type="submit" class="btn btn-primary">Add Event</button>
         </form>
