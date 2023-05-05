@@ -8,7 +8,7 @@
             <input placeholder="Title" name="title" type="text" class="subHeaderEntry">
             <input name="date" type="date" class="subHeaderEntry">
             <input placeholder="Description" name="description" type="text" class="subHeaderEntry">
-            <button type="submit" class="btn btn-primary">Add Event</button>
+            <button type="submit" name="addSubmit" class="btn btn-primary">Add Event</button>
         </form>
     </div>
 </header>
@@ -17,27 +17,33 @@
     {% for event in events %}
     {% cycle 'left' 'right' as left_right silent %}
 
-    {% if left_right == 'left' %}
-    <div class="box left">
-        <div class="content">
-            <h2>{{ event.title }}</h2>
-            <h3>{{ event.date }}</h3>
-            <p>{{ event.description }}</p>
-            <a href="delete-event/{{ event.event_id }}/{{ event.timeline_id }}" class="btn btn-primary">Delete</a>
+        {% if left_right == 'left' %}
+        <div class="box left">
+        {% endif %}
+        {% if left_right == 'right' %}
+        <div class="box right ">
+        {% endif %}
+            <div class="content">
+                <h2>{{ event.title }}</h2>
+                <h3>{{ event.date }}</h3>
+                <p>{{ event.description }}</p>
+                <a href="delete-event/{{ event.event_id }}" class="btn btn-danger btn-sm">Delete</a>
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#collapseEdit-{{event.event_id}}">Edit</button>
+                
+                <div class="accordion accordion-flush" id="#collapseParent-{{event.event_id}}" style="border-color: transparent">
+                    <div id="collapseEdit-{{event.event_id}}" style="background-color: white; border-color: transparent" 
+                    class="accordion-collapse collapse" data-bs-parent="collapseParent-{{event.event_id}}">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input class="editEntry form-control" value="{{event.title}}" placeholder="Title" name="editTitle" type="text">
+                            <input class="editEntry form-control" name="editDate" type="date" required>
+                            <input class="editEntry form-control" value="{{event.description}}" placeholder="Description" name="editDescription" type="text">
+                            <button type="submit" name="editSubmit" value="{{event.event_id}}" class="btn btn-primary btn-sm">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    {% endif %}
-
-    {% if left_right == 'right' %}
-    <div class="box right">
-        <div class="content">
-            <h2>{{ event.title }}</h2>
-            <h3>{{ event.date }}</h3>
-            <p>{{ event.description }}</p>
-            <a href="delete-event/{{ event.event_id }}" class="btn btn-primary">Delete</a>
-        </div>
-    </div>
-    {% endif %}
     {% endfor %}
 </div>
 

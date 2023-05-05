@@ -18,17 +18,26 @@ def index(request):
 def timeline(request, pk):
     timeline = Timeline.objects.get(pk=pk)
     event = Event.objects.filter(timeline_id=pk).order_by('date')
-    
+
     dict = {'timeline': timeline,
-            'events': event}
+            'events': event }
 
     if request.method=="POST":
+      if "addSubmit" in request.POST:
         title = request.POST['title']
         date = request.POST['date']
         description = request.POST['description']
         o = Event(date=date, title=title, 
-                  description=description, timeline_id=timeline)
+          description=description, timeline_id=timeline)
         o.save()
+
+      if "editSubmit" in request.POST:
+        editTitle = request.POST['editTitle']
+        editDate = request.POST['editDate']
+        editDescription = request.POST['editDescription']
+        id = request.POST.__getitem__("editSubmit")
+        event = Event.objects.filter(event_id=id)
+        event.update(title=editTitle, date=editDate, description=editDescription)
     return render(request, 'timeline_app/timeline.html', context=dict)
 
 def delete_timeline(request, id):

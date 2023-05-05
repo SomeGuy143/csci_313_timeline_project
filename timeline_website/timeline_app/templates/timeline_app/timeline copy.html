@@ -1,0 +1,44 @@
+{% extends 'timeline_app/navbar.html' %}
+{% block contentblock %}
+<header id="subHeader">
+    <div>
+        <h1 class="subHeaderElement"> Timeline Name </h1>
+        <form method="POST" class="headerElement">
+            {% csrf_token %}
+            <input placeholder="Title" name="title" type="text" class="subHeaderEntry">
+            <input name="date" type="date" class="subHeaderEntry">
+            <input placeholder="Description" name="description" type="text" class="subHeaderEntry">
+            <button type="submit" class="btn btn-primary">Add Event</button>
+        </form>
+    </div>
+</header>
+
+<div class="timeline">
+    {% for event in events %}
+    {% cycle 'left' 'right' as left_right silent %}
+
+    {% if left_right == 'left' %}
+    <div class="box left">
+        <div class="content">
+            <h2>{{ event.title }}</h2>
+            <h3>{{ event.date }}</h3>
+            <p>{{ event.description }}</p>
+            <a href="delete-event/{{ event.event_id }}/{{ event.timeline_id }}" class="btn btn-primary">Delete</a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if left_right == 'right' %}
+    <div class="box right">
+        <div class="content">
+            <h2>{{ event.title }}</h2>
+            <h3>{{ event.date }}</h3>
+            <p>{{ event.description }}</p>
+            <a href="delete-event/{{ event.event_id }}" class="btn btn-primary">Delete</a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %} 
