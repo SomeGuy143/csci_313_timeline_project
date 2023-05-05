@@ -1,0 +1,165 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* start of navbar.html stuff */
+.header {
+    float: left;
+    background-color: #a9a9a9;
+
+    height: 75px;
+    padding: 10px;
+
+    width: 100%;
+}
+
+#contentBlock {
+    float: left;
+    top: 64px;
+    width: 100%;
+}
+
+#logo {
+    height: inherit;
+    width: inherit;
+    float: left;
+}
+
+#logoButton {
+    float: left;
+    height: 48px;
+    width: 48px;
+    background-color: inherit;
+    border-color: transparent;
+}
+
+#title {
+    float: left;
+    margin-left: 20px;
+    background-color: inherit;
+    border-color: transparent;
+    top: 0;
+}
+
+/* end of navbar.html stuff */
+
+/* start of timeline.html stuff */
+
+#subHeader {
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.subHeaderElement {
+    display: flex;
+    justify-content: center;
+}
+
+.subHeaderEntry {
+    margin: 0px 2px 4px 2px;
+}
+
+.btn-primary {
+    background-color: #f4a72b !important;
+    border-color: transparent !important;
+    margin-top: -5px;
+}
+
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #4b4b4b;
+}
+
+/* vertical bar */
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+/* box */
+.box {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+
+/* dot on timeline */
+.box::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -15px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+/* arrow */
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* arrow */
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* fixes right circle */
+.right::after {
+    left: -16px;
+}
+
+.right::after {
+    left: -10px;
+}
+
+/* area content goes in */
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
