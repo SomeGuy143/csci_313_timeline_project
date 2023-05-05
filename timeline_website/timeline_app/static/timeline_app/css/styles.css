@@ -5,21 +5,18 @@
 .card {
   border: 2px black;
   border-style: double;
-  width: 15%;
+  width: auto;
   text-align: center;
   background-color:rgb(211, 255, 233);
   padding: 10px;
-
+  margin: 20px;
 }
-
-  header  {
-  margin: 10px;
+header  {
   background-color:rgb(148, 186, 201);
-  height: auto + 10px;
+  height: auto;
   align-content: center;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
-  border: double rgb(211, 255, 233) 6px;
 }
 form {
   padding-bottom: 20px;
@@ -51,8 +48,8 @@ body {
   margin-left: -3px;
 }
 
-/* Container around content */
-.container {
+/* box around content */
+.box {
   padding: 10px 40px;
   position: relative;
   background-color: inherit;
@@ -60,7 +57,7 @@ body {
 }
 
 /* The circles on the timeline */
-.container::after {
+.box::after {
   content: '';
   position: absolute;
   width: 25px;
@@ -73,17 +70,17 @@ body {
   z-index: 1;
 }
 
-/* Place the container to the left */
+/* Place the box to the left */
 .left {
   left: 0;
 }
 
-/* Place the container to the right */
+/* Place the box to the right */
 .right {
   left: 50%;
 }
 
-/* Add arrows to the left container (pointing right) */
+/* Add arrows to the left box (pointing right) */
 .left::before {
   content: " ";
   height: 0;
@@ -97,7 +94,7 @@ body {
   border-color: transparent transparent transparent white;
 }
 
-/* Add arrows to the right container (pointing left) */
+/* Add arrows to the right box (pointing left) */
 .right::before {
   content: " ";
   height: 0;
@@ -111,7 +108,7 @@ body {
   border-color: transparent white transparent transparent;
 }
 
-/* Fix the circle for containers on the right side */
+/* Fix the circle for boxs on the right side */
 .right::after {
   left: -16px;
 }
@@ -131,15 +128,15 @@ body {
     left: 31px;
   }
 
-/* Full-width containers */
-  .container {
+/* Full-width boxs */
+  .box {
     width: 100%;
     padding-left: 70px;
     padding-right: 25px;
   }
 
 /* Make sure that all arrows are pointing leftwards */
-  .container::before {
+  .box::before {
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
@@ -151,7 +148,7 @@ body {
     left: 15px;
   }
 
-/* Make all right containers behave like the left ones */
+/* Make all right boxs behave like the left ones */
   .right {
     left: 0%;
   }
