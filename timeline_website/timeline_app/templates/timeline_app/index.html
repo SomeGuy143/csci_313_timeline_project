@@ -3,7 +3,6 @@
 {% block contentblock %}
 <!DOCTYPE html>
 <html lang="en">
-  
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +10,18 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'timeline_app/css/styles.css' %}">
   </head>
+
+  <header id="subHeader">
+    <div>
+      <h1 class="subHeaderElement"> Timeline Projects </h1>
+      <form method="POST" class="headerElement">
+        {% csrf_token %}
+        <input placeholder="Timeline Name" name ="timeline_name" type="text">
+        <button type="submit">Add Timeline</button>
+      </form>
+    </div>  
+  </header>
+
   <body>
     {% for timeline in timelines %}
     <div class="card">
