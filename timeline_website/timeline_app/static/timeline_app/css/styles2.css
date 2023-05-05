@@ -45,6 +45,11 @@
 
 /* start of timeline.html stuff */
 
+.editEntry {
+    margin: 10px;
+}
+
+
 #subHeader {
     background-color: white;
 
@@ -66,6 +71,9 @@
 .btn-primary {
     background-color: #f4a72b !important;
     border-color: transparent !important;
+    margin-top: -5px;
+}
+.btn-danger {
     margin-top: -5px;
 }
 
